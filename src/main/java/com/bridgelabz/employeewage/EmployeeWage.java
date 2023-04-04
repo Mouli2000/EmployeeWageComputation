@@ -11,6 +11,8 @@ class EmoployeeWage {
 	static int DAILY_WAGE = 0;
 	static int FULL_TIME = 1;
 	static int PART_TIME = 0;
+	static int WORKING_DAYS = 20;
+	static int MONTHLY_WAGES = 0;
 	
 	public static void main(String []args) {
 		
@@ -23,13 +25,17 @@ class EmoployeeWage {
 			int check = random.nextInt(2);
 			if(check == FULL_TIME) {
 				DAILY_WAGE = WAGE_PER_HR * FULL_DAY_HR;
+				MONTHLY_WAGES = DAILY_WAGE * WORKING_DAYS;
 				System.out.println("Employee is Full Timer");
 				System.out.println("Daily Employee Wage is : "+DAILY_WAGE);
+				System.out.println("Employee Monthly Wage is : "+MONTHLY_WAGES);
 			}
 			else {
 				DAILY_WAGE = WAGE_PER_HR * PART_TIME_HR;
+				MONTHLY_WAGES = DAILY_WAGE * WORKING_DAYS;
 				System.out.println("Employee is Part Timer");
 				System.out.println("Daily Employee Wage is : "+DAILY_WAGE);
+				System.out.println("Employee Monthly Wage is : "+MONTHLY_WAGES);
 			}
 			break;
 		default :
