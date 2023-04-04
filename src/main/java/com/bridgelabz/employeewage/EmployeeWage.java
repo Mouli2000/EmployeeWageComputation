@@ -17,7 +17,8 @@ class EmoployeeWage {
 		Random random = new Random();
 		int randomNum = random.nextInt(2);
 		
-		if(randomNum == PRESENT) {
+		switch(randomNum) {
+		case 1:
 			System.out.println("Employee Present");
 			int check = random.nextInt(2);
 			if(check == FULL_TIME) {
@@ -30,8 +31,9 @@ class EmoployeeWage {
 				System.out.println("Employee is Part Timer");
 				System.out.println("Daily Employee Wage is : "+DAILY_WAGE);
 			}
-		}
-		else
+			break;
+		default :
 			System.out.println("Employee Absent");
+		}	
 	}
 }
