@@ -5,41 +5,37 @@ import java.util.Random;
 class EmoployeeWage {
 
 	static int WAGE_PER_HR = 20;
-	static int FULL_DAY_HR = 8;
-	static int PART_TIME_HR = 4;
-	static int PRESENT = 1;
-	static int DAILY_WAGE = 0;
-	static int FULL_TIME = 1;
-	static int PART_TIME = 0;
 	static int WORKING_DAYS = 20;
-	static int MONTHLY_WAGES = 0;
+	static int TOTAL_WORKING_HRS = 100;
+	static int TOTAL_EMP_WAGE = 0;
 	
 	public static void main(String []args) {
 		
 		Random random = new Random();
-		int randomNum = random.nextInt(2);
+		int empHrs = 0;
+		int empDays = 0;
 		
-		switch(randomNum) {
-		case 1:
-			System.out.println("Employee Present");
-			int check = random.nextInt(2);
-			if(check == FULL_TIME) {
-				DAILY_WAGE = WAGE_PER_HR * FULL_DAY_HR;
-				MONTHLY_WAGES = DAILY_WAGE * WORKING_DAYS;
-				System.out.println("Employee is Full Timer");
-				System.out.println("Daily Employee Wage is : "+DAILY_WAGE);
-				System.out.println("Employee Monthly Wage is : "+MONTHLY_WAGES);
-			}
-			else {
-				DAILY_WAGE = WAGE_PER_HR * PART_TIME_HR;
-				MONTHLY_WAGES = DAILY_WAGE * WORKING_DAYS;
-				System.out.println("Employee is Part Timer");
-				System.out.println("Daily Employee Wage is : "+DAILY_WAGE);
-				System.out.println("Employee Monthly Wage is : "+MONTHLY_WAGES);
-			}
-			break;
-		default :
-			System.out.println("Employee Absent");
-		}	
+		while(empHrs < TOTAL_WORKING_HRS && empDays < WORKING_DAYS) {
+			empDays ++;
+			int EmployeeCheck = random.nextInt(3);
+		
+			switch(EmployeeCheck) {
+				case 1:
+					empHrs = 8;
+					break;
+			
+				case 2 :
+					empHrs = 4;
+					break;
+			
+				default : 
+					empHrs = 0;
+			} 
+			TOTAL_WORKING_HRS += empHrs;
+			System.out.println("Day : "+empDays+" , Working Hour : "+empHrs);
+		}
+		TOTAL_EMP_WAGE = TOTAL_WORKING_HRS * WAGE_PER_HR;
+		System.out.println("Total Employee Working Hours : "+TOTAL_WORKING_HRS);
+		System.out.println("Total Employee Wage : "+TOTAL_EMP_WAGE);
 	}
 }
