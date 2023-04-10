@@ -9,12 +9,9 @@ class EmoployeeWage {
 	static int TOTAL_WORKING_HRS = 100;
 	static int TOTAL_EMP_WAGE = 0;
 	
-	public static void main(String []args) {
+	static void wageCompute(int empHrs, int empDays) {
 		
 		Random random = new Random();
-		int empHrs = 0;
-		int empDays = 0;
-		
 		while(empHrs < TOTAL_WORKING_HRS && empDays < WORKING_DAYS) {
 			empDays ++;
 			int EmployeeCheck = random.nextInt(3);
@@ -37,5 +34,12 @@ class EmoployeeWage {
 		TOTAL_EMP_WAGE = TOTAL_WORKING_HRS * WAGE_PER_HR;
 		System.out.println("Total Employee Working Hours : "+TOTAL_WORKING_HRS);
 		System.out.println("Total Employee Wage : "+TOTAL_EMP_WAGE);
+	}
+	
+	public static void main(String []args) {
+		
+		int empHrs = 0;
+		int empDays = 0;
+		wageCompute(empHrs, empDays);
 	}
 }
